@@ -6,7 +6,7 @@ const typeOrmConfig: TypeOrmModuleOptions = {
   port: 3306,
   username: 'hung',
   password: 'hung1912',
-  database: 'demodb',
+  database: 'chat_socket',
   entities: ['dist/**/*.entity{.ts,.js}'],
   synchronize: true,
 };

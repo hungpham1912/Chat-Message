@@ -15,8 +15,10 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  register(infomation: RegisterAuthDto) {
-    const userExit = this.userService.findByEmail(infomation.email);
+  async register(infomation: RegisterAuthDto) {
+    const userExit = await this.userService.findByEmail(infomation.email);
+    console.log("🚀 ~ file: auth.service.ts ~ line 20 ~ AuthService ~ userExit", userExit)
+    
     if (!userExit) {
       return this.userService.create(infomation);
     }

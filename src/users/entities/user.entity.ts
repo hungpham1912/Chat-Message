@@ -13,7 +13,7 @@ export class User {
     Object.assign(this, partial);
   }
 
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: number;
 
   @Column()
