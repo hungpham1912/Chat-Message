@@ -12,6 +12,12 @@ export class Channel {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  @Column()
+  userId: string
+
+  @Column()
+  conversationId: string
+
   @ManyToOne(() => User) 
   user: string
 
@@ -32,6 +38,6 @@ export class Channel {
   deletedAt: Date
 
   @UpdateDateColumn()
-  updated: Date
+  updatedAt: Date
 
 }

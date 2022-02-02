@@ -1,8 +1,10 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { ConversationService } from './conversation.service';
 import { CreateConversationDto } from './dto/create-conversation.dto';
 import { UpdateConversationDto } from './dto/update-conversation.dto';
 
+@ApiTags('Conversation')
 @Controller('conversation')
 export class ConversationController {
   constructor(private readonly conversationService: ConversationService) {}
@@ -19,7 +21,7 @@ export class ConversationController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.conversationService.findOne(+id);
+    return this.conversationService.findOne(id);
   }
 
   @Patch(':id')

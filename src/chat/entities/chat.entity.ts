@@ -8,8 +8,16 @@ export class Chat {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => Channel) 
-  channel: string
+  @Column()
+  channelId: string
+
+
+  // @ManyToOne(() => Order, (order) => order.items)
+  // order: Order;
+
+
+  @ManyToOne(() => Channel, (channel) => channel.chat) 
+  channel: Channel
 
   @Column()
   content: string
@@ -21,6 +29,6 @@ export class Chat {
   deletedAt: Date
 
   @UpdateDateColumn()
-  updated: Date
+  updatedAt: Date
 
 }

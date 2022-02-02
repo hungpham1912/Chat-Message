@@ -1,11 +1,35 @@
-import { Injectable } from '@nestjs/common';
-import { CreateChatDto } from './dto/create-chat.dto';
+import { HttpException, Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { ChannelsService } from 'src/channels/channels.service';
+import { Repository } from 'typeorm';
+import { ChatDto, CreateChatDto } from './dto/create-chat.dto';
 import { UpdateChatDto } from './dto/update-chat.dto';
+import { Chat } from './entities/chat.entity';
 
 @Injectable()
 export class ChatService {
-  create(createChatDto: CreateChatDto) {
-    return 'This action adds a new chat';
+  constructor(
+    @InjectRepository(Chat)
+    private readonly chatRepository: Repository<Chat>,
+    private readonly channelService: ChannelsService,
+  ) {}
+
+  async create(createChatDto: CreateChatDto) {
+    const checkChannel =
+      await this.channelService.findByUserIdAndConversationId(
+        createChatDto.userId,
+        createChatDto.conversationId,
+      );
+    if (!checkChannel) {
+      throw new HttpException(`Don't find Channel`, 400);
+    }
+
+    const chat: ChatDto = {
+      channelId: checkChannel.id,
+      content: createChatDto.content,
+    };
+
+    return await this.chatRepository.save(chat);
   }
 
   findAll() {

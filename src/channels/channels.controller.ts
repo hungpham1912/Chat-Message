@@ -1,8 +1,10 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { ChannelsService } from './channels.service';
 import { CreateChannelDto } from './dto/create-channel.dto';
 import { UpdateChannelDto } from './dto/update-channel.dto';
 
+@ApiTags('Channel')
 @Controller('channels')
 export class ChannelsController {
   constructor(private readonly channelsService: ChannelsService) {}
@@ -17,18 +19,23 @@ export class ChannelsController {
     return this.channelsService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.channelsService.findOne(+id);
+  @Get('users/:userId')
+  findConversationByUser(@Param('userId') id: string) {
+    return this.channelsService.findByUserId(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateChannelDto: UpdateChannelDto) {
-    return this.channelsService.update(+id, updateChannelDto);
+  @Get('/:conversationId')
+  findByConversationId(@Param('conversationId') id: string) {
+    return this.channelsService.findByConvId(id);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.channelsService.remove(+id);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateChannelDto: UpdateChannelDto) {
+  //   return this.channelsService.update(+id, updateChannelDto);
+  // }
+
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.channelsService.remove(+id);
+  // }
 }

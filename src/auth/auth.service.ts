@@ -37,7 +37,7 @@ export class AuthService {
     }
   }
 
-  async validateById(id: number){
+  async validateById(id: string){
     const user = await this.userService.findOne(id)
     if(!user){
       throw new HttpException("Do'nt find user ", 401);

@@ -15,7 +15,9 @@ export class Conversation {
   @Column()
   style:ConversationType  ;
 
-  @Column()
+  @Column({
+    nullable: true 
+  })
   name: string;
 
   @CreateDateColumn()
@@ -25,5 +27,5 @@ export class Conversation {
   deletedAt: Date
 
   @UpdateDateColumn()
-  updated: Date
+  updatedAt: Date
 }
