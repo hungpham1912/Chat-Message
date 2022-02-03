@@ -13,6 +13,9 @@ export class CreateUserDto {
     email: string;
 
     @IsString()
+    URLimage
+
+    @IsString()
     adress: string;
 
     @IsString()

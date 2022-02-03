@@ -1,5 +1,7 @@
 import { Exclude } from "class-transformer";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { channel } from "diagnostics_channel";
+import { Channel } from "src/channels/entities/channel.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 
 export enum Role {
@@ -20,7 +22,9 @@ export class User {
   full_name: string;
 
   @Column()
-  
+  URLimage: string;
+
+  @Column()
   phone: string;
 
   @Column()
@@ -33,6 +37,6 @@ export class User {
   @Column({ type: 'enum', enum: Role, default: Role.USER })
   role: Role;
 
-  
-
+  @OneToMany(()=> Channel,(channel) => channel.user)
+  channel: Channel[]
 }

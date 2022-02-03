@@ -8,6 +8,9 @@ export class RegisterAuthDto {
     phone: string;
 
     @IsString()
+    URLimage: string
+
+    @IsString()
     email: string;
 
     @IsString()

@@ -5,7 +5,7 @@ import { UsersService } from 'src/users/users.service';
 import { Repository } from 'typeorm';
 import { CreateChannelDto } from './dto/create-channel.dto';
 import { UpdateChannelDto } from './dto/update-channel.dto';
-import { Channel } from './entities/channel.entity';
+import { Channel, ResultChannel, Sender } from './entities/channel.entity';
 
 @Injectable()
 export class ChannelsService {
@@ -13,39 +13,57 @@ export class ChannelsService {
     @InjectRepository(Channel)
     private readonly channelRepository: Repository<Channel>,
     private readonly conversationService: ConversationService,
-    private readonly userService: UsersService
   ) {}
   create(createChannelDto: CreateChannelDto) {
-    const create = this.channelRepository.create(createChannelDto)
+    const create = this.channelRepository.create(createChannelDto);
     return this.channelRepository.save(create);
   }
 
-  async findByUserIdAndConversationId(userId, conversationId){
-    return await this.channelRepository.findOne({where:{userId: userId, conversationId: conversationId}})
+  async findByUserIdAndConversationId(userId, conversationId) {
+    return await this.channelRepository.findOne({
+      where: { userId: userId, conversationId: conversationId },
+    });
   }
 
-  async findByUserId(userId){
-    const chanels = await this.channelRepository.find({where:{userId: userId}})
-    const listId = []
-    for(let i=0;i<chanels.length;i++){
-      const conv = await this.conversationService.findOne(chanels[i].conversationId)
-      listId[i]= conv;
+  async findByUserId(userId: string) {
+    const chanels = await this.channelRepository.find({
+      where: { userId: userId },
+    });
+    const listId = [];
+    for (let i = 0; i < chanels.length; i++) {
+      const conv = await this.conversationService.findOne(
+        chanels[i].conversationId,
+      );
+      listId[i] = conv;
     }
     return listId;
   }
 
-  async findByConvId(id: string){
-    const channel = await this.channelRepository.find({where:{conversationId:id}})
-    
+  async findByConvId(id: string) {
+    const channel = await this.channelRepository.find({
+      where: { conversationId: id },
+    });
+    const result: ResultChannel[] = [];
+    let count = 0;
+    for (let i = 0; i < channel.length; i++) {
+      for (let j = 0; j < channel[i].chat.length; j++) {
+        result[count] = {
+          sender: {
+            URLimage: channel[i].user.URLimage,
+            full_name: channel[i].user.full_name,
+          },
+          chat: channel[i].chat[j],
+        };
+        count++;
+      }
+    }
 
-    
+    return result;
   }
 
   findAll() {
     return this.channelRepository.find();
   }
-
-  
 
   update(id: number, updateChannelDto: UpdateChannelDto) {
     return `This action updates a #${id} channel`;
