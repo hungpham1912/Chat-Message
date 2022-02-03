@@ -6,11 +6,12 @@ import { UsersModule } from './users/users.module';
 import { ChatModule } from './chat/chat.module';
 import { ChannelsModule } from './channels/channels.module';
 import { ConversationModule } from './conversation/conversation.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [AuthModule, UsersModule, TypeOrmModule.forRoot(typeOrmConfig), ChatModule, ChannelsModule, ConversationModule,
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}
