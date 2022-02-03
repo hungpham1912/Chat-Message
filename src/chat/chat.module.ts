@@ -9,10 +9,11 @@ import { ConversationService } from 'src/conversation/conversation.service';
 import { Conversation } from 'src/conversation/entities/conversation.entity';
 import { UsersService } from 'src/users/users.service';
 import { User } from 'src/users/entities/user.entity';
+import { ChatGateway } from './chat-gateway/chat.gateway';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Chat, Channel,Conversation, User])],
   controllers: [ChatController],
-  providers: [ChatService, ChannelsService, ConversationService, UsersService]
+  providers: [ChatService, ChannelsService, ConversationService, UsersService,ChatGateway]
 })
 export class ChatModule {}

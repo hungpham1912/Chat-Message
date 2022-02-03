@@ -14,22 +14,19 @@ export class ChatService {
     private readonly channelService: ChannelsService,
   ) {}
 
-  async create(createChatDto: CreateChatDto) {
+  async create(createChatDto: ChatDto) {
     const checkChannel =
-      await this.channelService.findByUserIdAndConversationId(
-        createChatDto.userId,
-        createChatDto.conversationId,
-      );
+      await this.channelService.findById(createChatDto.channelId)
     if (!checkChannel) {
       throw new HttpException(`Don't find Channel`, 400);
     }
 
-    const chat: ChatDto = {
-      channelId: checkChannel.id,
-      content: createChatDto.content,
-    };
+    // const chat: ChatDto = {
+    //   channelId: checkChannel.id,
+    //   content: createChatDto.content,
+    // };
 
-    return await this.chatRepository.save(chat);
+    return await this.chatRepository.save(createChatDto);
   }
 
   findAll() {

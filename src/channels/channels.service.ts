@@ -19,10 +19,8 @@ export class ChannelsService {
     return this.channelRepository.save(create);
   }
 
-  async findByUserIdAndConversationId(userId, conversationId) {
-    return await this.channelRepository.findOne({
-      where: { userId: userId, conversationId: conversationId },
-    });
+  async findById(id: string) {
+    return await this.channelRepository.findOne(id);
   }
 
   async findByUserId(userId: string) {
