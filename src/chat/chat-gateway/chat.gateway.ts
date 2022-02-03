@@ -10,7 +10,7 @@ import {
   WsResponse,
 } from '@nestjs/websockets';
 import { ChatService } from '../chat.service';
-import { ChatDto } from '../dto/create-chat.dto';
+import { ChatDto, CreateChatDto } from '../dto/create-chat.dto';
 import { Chat } from '../entities/chat.entity';
 // import { Server } from 'http';
 
@@ -22,8 +22,15 @@ export class ChatGateway {
   server;
 
   @SubscribeMessage('message')
-  handleMessage(@MessageBody() chat: ChatDto) {
-    this.chatService.create(chat);
-    this.server.emit('message', chat);
+  async handleMessage(@MessageBody() chat: CreateChatDto) {
+    const result = await this.chatService.create(chat);
+    this.server.emit('message', result);
   }
+
+  @SubscribeMessage('test')
+  test(@MessageBody() chat: string){
+  console.log("🚀 ~ file: chat.gateway.ts ~ line 32 ~ ChatGateway ~ chat", chat)
+  this.server.emit('test', chat);
+}
+
 }

@@ -1,13 +1,12 @@
-import { Exclude } from "class-transformer";
-import { channel } from "diagnostics_channel";
-import { Channel } from "src/channels/entities/channel.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-
+import { Exclude } from 'class-transformer';
+import { channel } from 'diagnostics_channel';
+import { Channel } from 'src/channels/entities/channel.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 export enum Role {
-    ADMIN = 'admin',
-    USER = 'user',
-  }
+  ADMIN = 'admin',
+  USER = 'user',
+}
 
 @Entity()
 export class User {
@@ -21,7 +20,9 @@ export class User {
   @Column()
   full_name: string;
 
-  @Column()
+  @Column({
+    length: 1000,
+  })
   URLimage: string;
 
   @Column()
@@ -37,6 +38,6 @@ export class User {
   @Column({ type: 'enum', enum: Role, default: Role.USER })
   role: Role;
 
-  @OneToMany(()=> Channel,(channel) => channel.user)
-  channel: Channel[]
+  @OneToMany(() => Channel, (channel) => channel.user)
+  channel: Channel[];
 }

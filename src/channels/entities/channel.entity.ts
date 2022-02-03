@@ -50,7 +50,7 @@ export class Channel {
 }
 
 export class Sender extends PickType(CreateUserDto, ['full_name','URLimage'] as const){
-  
+  id: string
 }
 
 export class ResultChannel{

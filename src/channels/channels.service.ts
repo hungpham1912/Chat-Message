@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ConversationService } from 'src/conversation/conversation.service';
 import { UsersService } from 'src/users/users.service';
@@ -19,8 +19,9 @@ export class ChannelsService {
     return this.channelRepository.save(create);
   }
 
-  async findById(id: string) {
-    return await this.channelRepository.findOne(id);
+  async findByUserIdAndConvId(UserId: string, ConvId: string) {
+    const channel =  await this.channelRepository.findOne({where:{userId: UserId, conversationId: ConvId}});
+    return channel
   }
 
   async findByUserId(userId: string) {
@@ -47,6 +48,7 @@ export class ChannelsService {
       for (let j = 0; j < channel[i].chat.length; j++) {
         result[count] = {
           sender: {
+            id: channel[i].userId,
             URLimage: channel[i].user.URLimage,
             full_name: channel[i].user.full_name,
           },
@@ -55,8 +57,15 @@ export class ChannelsService {
         count++;
       }
     }
+    const kq = result.sort((n1,n2) =>{
+      if(n1.chat.createdAt>n2.chat.createdAt) return 1;
+      if(n1.chat.createdAt<n2.chat.createdAt) return -1;
 
-    return result;
+      return 0;
+
+    })
+
+    return kq;
   }
 
   findAll() {
