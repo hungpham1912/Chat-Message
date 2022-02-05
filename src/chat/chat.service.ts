@@ -42,7 +42,10 @@ export class ChatService {
     return `This action updates a #${id} chat`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} chat`;
+  async remove() {
+    const listChat = await this.chatRepository.find();
+    for(let i =0 ; i<listChat.length;i++){
+      await this.chatRepository.delete(listChat[i].id)
+    }
   }
 }
