@@ -18,7 +18,7 @@ export class ConversationService {
   }
 
   findAll() {
-    return `This action returns all conversation`;
+    return this.conversationRepository.find();
   }
 
   findOne(id: string) {

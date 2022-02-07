@@ -7,11 +7,17 @@ import { ChatModule } from './chat/chat.module';
 import { ChannelsModule } from './channels/channels.module';
 import { ConversationModule } from './conversation/conversation.module';
 import { AppController } from './app.controller';
-import { config } from "dotenv";
+import { config } from 'dotenv';
 
-config()
+config();
 @Module({
-  imports: [AuthModule, UsersModule, TypeOrmModule.forRoot(typeOrmConfig), ChatModule, ChannelsModule, ConversationModule,
+  imports: [
+    AuthModule,
+    UsersModule,
+    TypeOrmModule.forRoot(typeOrmConfig),
+    ChatModule,
+    ChannelsModule,
+    ConversationModule,
   ],
   controllers: [AppController],
   providers: [],

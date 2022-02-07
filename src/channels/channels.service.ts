@@ -60,7 +60,6 @@ export class ChannelsService {
     const kq = result.sort((n1,n2) =>{
       if(n1.chat.createdAt>n2.chat.createdAt) return 1;
       if(n1.chat.createdAt<n2.chat.createdAt) return -1;
-
       return 0;
 
     })

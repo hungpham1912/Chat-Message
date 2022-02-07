@@ -15,6 +15,7 @@ export class Conversation {
   @Column()
   style:ConversationType  ;
 
+
   @Column({
     nullable: true 
   })
