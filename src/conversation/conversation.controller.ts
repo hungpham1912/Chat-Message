@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { ConversationService } from './conversation.service';
 import { CreateConversationDto } from './dto/create-conversation.dto';
@@ -25,7 +33,10 @@ export class ConversationController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateConversationDto: UpdateConversationDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateConversationDto: UpdateConversationDto,
+  ) {
     return this.conversationService.update(+id, updateConversationDto);
   }
 

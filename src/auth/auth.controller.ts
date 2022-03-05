@@ -25,6 +25,11 @@ export class AuthController {
     return this.authService.register(infomation);
   }
 
+  @Post('forgot_password')
+  forgot_password(@Body() infomation: CreateUserDto) {
+    return this.authService.register(infomation);
+  }
+
   // @Get(':id')
   // findOne(@Param('id') id: string) {
   //   return this.authService.findOne(+id);

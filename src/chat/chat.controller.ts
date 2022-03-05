@@ -1,9 +1,6 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Delete } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { ChatService } from './chat.service';
-import { CreateChatDto } from './dto/create-chat.dto';
-import { UpdateChatDto } from './dto/update-chat.dto';
-
 
 @ApiTags('Chat')
 @Controller('chat')
@@ -27,8 +24,7 @@ export class ChatController {
 
   // @Patch(':id')
   // update(@Param('id') id: string, @Body() updateChatDto: UpdateChatDto) {
-  //   return this.chatService.update(+id, updateChatDto);
-  // }
+  //   return this.chatService.update(+id, updhttps://scontent.fhan4-3.fna.fbcdn.net/v/t1.6435-9/175652671_142058228…
 
   @Delete()
   remove() {

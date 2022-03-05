@@ -20,8 +20,10 @@ export class ChannelsService {
   }
 
   async findByUserIdAndConvId(UserId: string, ConvId: string) {
-    const channel =  await this.channelRepository.findOne({where:{userId: UserId, conversationId: ConvId}});
-    return channel
+    const channel = await this.channelRepository.findOne({
+      where: { userId: UserId, conversationId: ConvId },
+    });
+    return channel;
   }
 
   async findByUserId(userId: string) {
@@ -57,18 +59,18 @@ export class ChannelsService {
         count++;
       }
     }
-    const kq = result.sort((n1,n2) =>{
-      if(n1.chat.createdAt>n2.chat.createdAt) return 1;
-      if(n1.chat.createdAt<n2.chat.createdAt) return -1;
+    const kq = result.sort((n1, n2) => {
+      if (n1.chat.createdAt > n2.chat.createdAt) return 1;
+      if (n1.chat.createdAt < n2.chat.createdAt) return -1;
       return 0;
-
-    })
+    });
 
     return kq;
   }
 
   findAll() {
-    return this.channelRepository.find();
+    return this.channelRepository.find()
+    
   }
 
   update(id: number, updateChannelDto: UpdateChannelDto) {

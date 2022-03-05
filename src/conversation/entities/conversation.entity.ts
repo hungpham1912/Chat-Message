@@ -1,32 +1,35 @@
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
-
-export enum ConversationType{
-    DUO = "duo",
-    GROUP = "group"
+export enum ConversationType {
+  DUO = 'duo',
+  GROUP = 'group',
 }
 @Entity()
 export class Conversation {
- 
-
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
-  style:ConversationType  ;
-
+  style: ConversationType;
 
   @Column({
-    nullable: true 
+    nullable: true,
   })
   name: string;
 
   @CreateDateColumn()
-  createdAt: Date
+  createdAt: Date;
 
   @DeleteDateColumn()
-  deletedAt: Date
+  deletedAt: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date
+  updatedAt: Date;
 }

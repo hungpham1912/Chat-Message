@@ -1,5 +1,4 @@
 import { Exclude } from 'class-transformer';
-import { channel } from 'diagnostics_channel';
 import { Channel } from 'src/channels/entities/channel.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 

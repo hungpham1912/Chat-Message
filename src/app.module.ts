@@ -8,6 +8,7 @@ import { ChannelsModule } from './channels/channels.module';
 import { ConversationModule } from './conversation/conversation.module';
 import { AppController } from './app.controller';
 import { config } from 'dotenv';
+import { MulterModule } from '@nestjs/platform-express';
 
 config();
 @Module({
@@ -18,6 +19,9 @@ config();
     ChatModule,
     ChannelsModule,
     ConversationModule,
+    MulterModule.register({
+      dest: './upload',
+    }),
   ],
   controllers: [AppController],
   providers: [],

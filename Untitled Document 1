@@ -1,0 +1,106 @@
+{
+    "full_name": "Pham Thanh Hung",
+    "URLimage": "https://scontent.fhan4-3.fna.fbcdn.net/v/t1.6435-9/175652671_1420582284946874_429501063576353338_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=a4a2d7&_nc_ohc=nxg-kcflFlgAX-S8dMo&_nc_ht=scontent.fhan4-3.fna&oh=00_AT_zWLNnvI5Fb1EXXI-_WP6osxZyZwhLXyLa5qlXUY9ZSQ&oe=6222123A",
+    "phone": "0964816205",
+    "email": "phamthanh.hung.work@gmail.com",
+    "password": "123456",
+    "role": "user",
+    "id": "62f8ddaf-e482-46f1-afcf-2547c255a7f9"
+}
+
+
+
+{
+    "full_name": "Do Viet Long",
+    "URLimage": "https://scontent.fhan4-2.fna.fbcdn.net/v/t1.30497-1/143086968_2856368904622192_1959732218791162458_n.png?_nc_cat=1&ccb=1-5&_nc_sid=7206a8&_nc_ohc=ie2KghS_0TUAX_T9fVz&tn=RFb3Ro_Cu87gXes1&_nc_ht=scontent.fhan4-2.fna&oh=00_AT_Er9cIZ-hiEc9HwjVycH0GNhzuMZ11ZDFlkztYplFVgw&oe=62245AF8",
+    "phone": "0964816205",
+    "email": "doviet.long.work@gmail.com",
+    "password": "123456",
+    "role": "user",
+    "id": "64b9c122-ab4f-48cc-9205-151a1a54f360"
+}
+
+
+
+{
+    "full_name": "Hoang Minh Duc",
+    "URLimage": "https://scontent.fhan3-4.fna.fbcdn.net/v/t1.6435-1/s200x200/120217068_176834967305647_8512185360329574166_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=7206a8&_nc_ohc=6L7cQHKnKMkAX8jE5Qr&_nc_ht=scontent.fhan3-4.fna&oh=00_AT-ZrRq29yalOPRgN6F-Slqk0RaXILMXCqAPTYxqmiC2yg&oe=621FA010",
+    "phone": "0964816205",
+    "email": "hoangminh.duc.work@gmail.com",
+    "password": "123456",
+    "role": "user",
+    "id": "bd2538ba-e5a9-4afa-abb5-45404e2f218e"
+}
+
+
+{
+    "full_name": "Nguyen Minh Luong",
+    "URLimage": "https://scontent.fhan2-4.fna.fbcdn.net/v/t39.30808-1/c11.0.100.100a/p100x100/269732903_919760962000807_5838884202588256184_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=7206a8&_nc_aid=0&_nc_ohc=tMxHOIvNC7sAX8ZIghN&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fhan2-4.fna&oh=00_AT_SZV7-y1O6eY5Aq7hxrc2D-r1isLzKrBxcrEOoH8-KBg&oe=6203F794",
+    "phone": "0964816205",
+    "email": "nguyenminh.luong@gmail.com",
+    "password": "123456",
+    "role": "user",
+    "id": "a9143e43-689c-47d2-a4a9-8aeda1bda5bd"
+}
+
+{
+    "style": "group",
+    "name": "Tu Tien Group",
+    "deletedAt": null,
+    "id": "1b0b7d44-277b-455d-9a46-0324665c2ee7",
+    "createdAt": "2022-02-05T15:59:20.187Z",
+    "updatedAt": "2022-02-05T15:59:20.187Z"
+}
+
+
+{
+    "userId": "62f8ddaf-e482-46f1-afcf-2547c255a7f9",
+    "conversationId": "1b0b7d44-277b-455d-9a46-0324665c2ee7",
+    "deletedAt": null,
+    "id": "72f9270f-6473-45ab-824a-9a46e35a06c4",
+    "createdAt": "2022-02-05T16:03:36.623Z",
+    "updatedAt": "2022-02-05T16:03:36.623Z"
+}
+
+
+{
+    "userId": "64b9c122-ab4f-48cc-9205-151a1a54f360",
+    "conversationId": "1b0b7d44-277b-455d-9a46-0324665c2ee7",
+    "deletedAt": null,
+    "id": "e4f126f8-32eb-4aad-bf91-24826d5ebc83",
+    "createdAt": "2022-02-05T16:11:24.895Z",
+    "updatedAt": "2022-02-05T16:11:24.895Z"
+}
+
+{
+    "userId": "bd2538ba-e5a9-4afa-abb5-45404e2f218e",
+    "conversationId": "1b0b7d44-277b-455d-9a46-0324665c2ee7",
+    "deletedAt": null,
+    "id": "fea13457-8619-48e0-bffd-f7b6d9511d8b",
+    "createdAt": "2022-02-05T16:18:12.148Z",
+    "updatedAt": "2022-02-05T16:18:12.148Z"
+}
+
+{
+    "userId": "a9143e43-689c-47d2-a4a9-8aeda1bda5bd",
+    "conversationId": "1b0b7d44-277b-455d-9a46-0324665c2ee7",
+    "deletedAt": null,
+    "id": "7435f8b1-3637-4e45-a674-5bacbb3beb1c",
+    "createdAt": "2022-02-06T13:09:01.820Z",
+    "updatedAt": "2022-02-06T13:09:01.820Z"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
